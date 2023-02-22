@@ -24,18 +24,32 @@ class MainActivity : AppCompatActivity() {
             val password = binding.etMainPassword.text.toString()
 
             auth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener{ task ->
+                .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         Toast.makeText(this, getText(R.string.signup), Toast.LENGTH_LONG).show()
                     } else {
 
                     }
-            }
+                }
         }
 
         binding.btnMainSignOut.setOnClickListener {
             auth.signOut()
             Toast.makeText(this, getText(R.string.signout), Toast.LENGTH_LONG).show()
+        }
+
+        binding.btnMainSignIn.setOnClickListener {
+            val email = binding.etMainEmail.text.toString()
+            val password = binding.etMainPassword.text.toString()
+
+            auth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        Toast.makeText(this, getText(R.string.signin), Toast.LENGTH_LONG).show()
+                    } else {
+
+                    }
+                }
         }
     }
 }
