@@ -2,6 +2,7 @@ package com.example.communitysampleapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.example.communitysampleapp.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -25,12 +26,16 @@ class MainActivity : AppCompatActivity() {
             auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener{ task ->
                     if (task.isSuccessful) {
-
+                        Toast.makeText(this, getText(R.string.signup), Toast.LENGTH_LONG).show()
                     } else {
 
                     }
             }
+        }
 
+        binding.btnMainSignOut.setOnClickListener {
+            auth.signOut()
+            Toast.makeText(this, getText(R.string.signout), Toast.LENGTH_LONG).show()
         }
     }
 }
