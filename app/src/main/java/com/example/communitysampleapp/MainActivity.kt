@@ -34,13 +34,13 @@ class MainActivity : AppCompatActivity() {
                 }
         }
 
-        // 로그인 버튼
+        // 로그아웃 버튼
         binding.btnMainSignOut.setOnClickListener {
             auth.signOut()
             Toast.makeText(this, getText(R.string.signout), Toast.LENGTH_LONG).show()
         }
 
-        // 로그아웃 버튼
+        // 로그인ㅔ 버튼
         binding.btnMainSignIn.setOnClickListener {
             val email = binding.etMainEmail.text.toString()
             val password = binding.etMainPassword.text.toString()
