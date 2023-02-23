@@ -1,5 +1,6 @@
 package com.example.communitysampleapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -28,6 +29,9 @@ class MainActivity : AppCompatActivity() {
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         Toast.makeText(this, getText(R.string.signup), Toast.LENGTH_LONG).show()
+
+                        val intent = Intent(this, BoardListActivity::class.java)
+                        startActivity(intent)
                     } else {
 
                     }
@@ -40,7 +44,7 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, getText(R.string.signout), Toast.LENGTH_LONG).show()
         }
 
-        // 로그인ㅔ 버튼
+        // 로그인 버튼
         binding.btnMainSignIn.setOnClickListener {
             val email = binding.etMainEmail.text.toString()
             val password = binding.etMainPassword.text.toString()
@@ -49,6 +53,9 @@ class MainActivity : AppCompatActivity() {
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
                         Toast.makeText(this, getText(R.string.signin), Toast.LENGTH_LONG).show()
+
+                        val intent = Intent(this, BoardListActivity::class.java)
+                        startActivity(intent)
                     } else {
 
                     }
