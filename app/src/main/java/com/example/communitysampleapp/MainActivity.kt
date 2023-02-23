@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         setContentView(binding.root)
 
+        // 회원 가입 버튼
         binding.btnMainSignUp.setOnClickListener {
             val email = binding.etMainEmail.text.toString()
             val password = binding.etMainPassword.text.toString()
@@ -33,11 +34,13 @@ class MainActivity : AppCompatActivity() {
                 }
         }
 
+        // 로그인 버튼
         binding.btnMainSignOut.setOnClickListener {
             auth.signOut()
             Toast.makeText(this, getText(R.string.signout), Toast.LENGTH_LONG).show()
         }
 
+        // 로그아웃 버튼
         binding.btnMainSignIn.setOnClickListener {
             val email = binding.etMainEmail.text.toString()
             val password = binding.etMainPassword.text.toString()
