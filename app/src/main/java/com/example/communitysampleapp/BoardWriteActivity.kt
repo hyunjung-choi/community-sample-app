@@ -17,7 +17,7 @@ class BoardWriteActivity : AppCompatActivity() {
 
         binding.btnBoardWrite.setOnClickListener {
             val database = Firebase.database
-            val myRef = database.getReference("message")
+            val myRef = database.getReference("board")
             val text = binding.etBoardWrite.text.toString()
 
             myRef.push().setValue(
