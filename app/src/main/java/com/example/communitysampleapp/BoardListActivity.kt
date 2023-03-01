@@ -17,6 +17,10 @@ class BoardListActivity : AppCompatActivity() {
     private val TAG = "BoardListActivity"
 
     private lateinit var binding: ActivityBoardListBinding
+    private lateinit var adapter: BoardListAdapter
+
+    val list = mutableListOf<Model>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_board_list)
@@ -28,6 +32,9 @@ class BoardListActivity : AppCompatActivity() {
         }
 
         getData()
+        adapter = BoardListAdapter(list)
+        binding.lvList.adapter = adapter
+
     }
 
     private fun getData() {
@@ -39,8 +46,13 @@ class BoardListActivity : AppCompatActivity() {
 
                 for (dataModel in snapshot.children) {
                     val item = dataModel.getValue(Model::class.java)
+                    if (item != null) {
+                        list.add(item)
+                    }
                     Log.d(TAG, "onDataChange: ${item}")
                 }
+
+                adapter.notifyDataSetChanged()
             }
 
             override fun onCancelled(error: DatabaseError) {
