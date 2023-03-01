@@ -19,7 +19,7 @@ class BoardListActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBoardListBinding
     private lateinit var adapter: BoardListAdapter
 
-    val list = mutableListOf<Model>()
+    private var list = mutableListOf<Model>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +32,7 @@ class BoardListActivity : AppCompatActivity() {
         }
 
         getData()
+
         adapter = BoardListAdapter(list)
         binding.lvList.adapter = adapter
 
@@ -43,6 +44,7 @@ class BoardListActivity : AppCompatActivity() {
 
         val postListener = object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
+                list.removeAll(list)
 
                 for (dataModel in snapshot.children) {
                     val item = dataModel.getValue(Model::class.java)
