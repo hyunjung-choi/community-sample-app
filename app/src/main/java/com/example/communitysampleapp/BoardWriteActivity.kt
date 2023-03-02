@@ -24,6 +24,7 @@ class BoardWriteActivity : AppCompatActivity() {
             myRef.push().setValue(
                 Model(text)
             )
+            finish()
         }
     }
 }
