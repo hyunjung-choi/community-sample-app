@@ -15,6 +15,7 @@ class BoardWriteActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_board_write)
         setContentView(binding.root)
 
+        // 글쓰기 버튼
         binding.btnBoardWrite.setOnClickListener {
             val database = Firebase.database
             val myRef = database.getReference("board")
