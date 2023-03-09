@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
@@ -31,13 +31,13 @@
             app:layout_constraintTop_toBottomOf="@id/et_main_email" />
 
         <Button
-            android:id="@+id/btn_main_sign_up"
+            android:id="@+id/btn_main_sign_in"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/signup"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/signin"
+            app:layout_constraintEnd_toStartOf="@id/btn_main_sign_out"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_main_password" />
+            app:layout_constraintTop_toBottomOf="@+id/et_main_password" />
 
         <Button
             android:id="@+id/btn_main_sign_out"
@@ -45,17 +45,18 @@
             android:layout_height="wrap_content"
             android:text="@string/signout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_main_sign_up" />
+            app:layout_constraintStart_toEndOf="@+id/btn_main_sign_in"
+            app:layout_constraintTop_toTopOf="@id/btn_main_sign_in" />
 
         <Button
-            android:id="@+id/btn_main_sign_in"
+            android:id="@+id/btn_main_sign_up"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/signin"
+            android:text="@string/signup"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_main_sign_out" />
+            app:layout_constraintTop_toBottomOf="@id/btn_main_sign_in" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
